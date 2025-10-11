@@ -1,0 +1,12 @@
+<section class="container m-5">
+    <h1>Countries</h1>
+    <input #coInput type="text" class="form-control" placeholder="Buscar" (keyup)="searchCountry(coInput.value)">
+        @for (item of listCountriesFound; track item.official) {
+            <a class="country" [routerLink]="['/country', item.common]">
+                <img [src]="item.flag" alt="" width="20px">
+                <p>{{item.official}}</p>
+            </a>
+                
+        }
+        
+</section>
