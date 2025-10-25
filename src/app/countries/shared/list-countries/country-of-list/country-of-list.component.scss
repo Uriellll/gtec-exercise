@@ -1,0 +1,19 @@
+li:hover{
+    transition: .3s;
+    background-color: #0D6EFD;
+    .country{
+        color: #fff;
+    }
+}
+.country{
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;    
+    justify-content: space-arounds;
+    p{
+        margin-left: 5px;
+        margin-bottom: 0px;
+    }
+    
+}

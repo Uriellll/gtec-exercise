@@ -1,32 +1,27 @@
-import { Component, inject, Inject, OnInit } from '@angular/core';
-import { CountryService } from '../services/country.service';
+import { Component, inject, OnInit } from '@angular/core';
 import { CountryInterface } from '../interfaces/country.interface';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { SearcherComponent } from '../shared/searcher/searcher.component';
+import { ListCountriesComponent } from '../shared/list-countries/list-countries.component';
+import { CountryMapperService } from '../services/country-mapper.service';
 
 @Component({
   selector: 'app-countries',
-  imports: [CommonModule, RouterLink],
+  imports: [
+    CommonModule,
+    SearcherComponent,
+    ListCountriesComponent,
+  ],
   templateUrl: './countries.component.html',
-  styleUrl: './countries.component.scss'
+  styleUrl: './countries.component.scss',
 })
-export default class CountriesComponent implements OnInit {
-  countryService = inject(CountryService);
-  listCountries: any[]  = [];
-  listCountriesMap : CountryInterface[] = [];
+export default class CountriesComponent{
+  countryMappedService = inject(CountryMapperService);
   listCountriesFound: CountryInterface[] = [];
-  ngOnInit(): void {
-    this.countryService.getCountries().subscribe(res =>{
-      this.listCountries = res;
-      this.listCountriesMap = this.listCountries.map((country:any)=>({
-        flag: country.flags.png,
-        common: country.name.common,
-        official: country.name.official
-      }))
-    })
-  }
 
-  searchCountry(country: string){
-    this.listCountriesFound = this.listCountriesMap.filter((coun:CountryInterface) => coun.common.toLowerCase().includes(country.toLowerCase())  || coun.official.toLowerCase().includes(country.toLowerCase()))
+  searchCountry(country: string) {
+    this.countryMappedService.getFilteredCountries(country).subscribe((res) => {
+      this.listCountriesFound = res;
+    });
   }
 }

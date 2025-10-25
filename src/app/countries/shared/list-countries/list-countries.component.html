@@ -1,0 +1,5 @@
+<ul class="list-group">
+  @for (item of countries; track item.official) {
+    <app-country-of-list [country]="item"></app-country-of-list>
+  }
+</ul>

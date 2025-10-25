@@ -12,19 +12,7 @@ export class CountryService {
 
   constructor() { }
 
-  getCountries():Observable<any>{
-    return this.httpClient.get(this.url)
-  }
-  getCountriesMap(name: string):Observable<CountryInterface>{
-    return this.httpClient.get<CountryInterface>(this.url).pipe(
-      map((paises:any) =>
-        paises.map((pais:any) => ({
-          flag: pais.flags.png,
-          common: pais.name.common,
-          official: pais.name.official
-        }))
-        .find((p:CountryInterface) => p.common.toLowerCase() === name.toLowerCase())
-      )
-    );
+  getCountries():Observable<any[]>{
+    return this.httpClient.get<any[]>(this.url)
   }
 }

@@ -1,9 +1,11 @@
 
 @if (country) {
-    <div class="container" >
-        <h1>{{country.official}}</h1>
-        <img [src]="country.flag" alt="">
+    <div class="container my-5" >
+        <h1 class="text-center">{{country.official}}</h1>
+        <div class="flag">
+            <img [src]="country.flag" alt="" width="400px">
         <p>{{country.common}}</p>
+        </div>
     </div>
 }
 
