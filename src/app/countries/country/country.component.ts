@@ -15,12 +15,12 @@ export default class CountryComponent implements OnInit {
   activatedRoute = inject(ActivatedRoute);
   countryServiceMapper = inject(CountryMapperService);
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params) => {
+    this.activatedRoute.paramMap.subscribe(params => {
       this.findCountry(params.get('name') || '');
     });
   }
   findCountry(name: string) {
-    this.countryServiceMapper.getCountryFound(name).subscribe((res) => {
+    this.countryServiceMapper.getCountryFound(name).subscribe(res => {
       this.country = res;
     });
   }

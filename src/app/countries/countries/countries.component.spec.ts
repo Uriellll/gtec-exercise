@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import CountriesComponent from './countries.component';
 import { CountryMapperService } from '../services/country-mapper.service';
-import { HttpClient } from '@angular/common/http';
 import { CountryInterface } from '../interfaces/country.interface';
 import { of } from 'rxjs';
 
@@ -17,7 +16,10 @@ describe('CountriesComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CountriesComponent],
       providers: [
-        { provide: CountryMapperService, useValue: countryMapperServiceSpy },
+        {
+          provide: CountryMapperService,
+          useValue: countryMapperServiceSpy,
+        },
       ],
     }).compileComponents();
 

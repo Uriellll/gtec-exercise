@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { CountryService } from './country.service';
-import { find, map, Observable } from 'rxjs';
-import { CountryInterface } from '../interfaces/country.interface';
+import { map, Observable } from 'rxjs';
+import { CountryInterface, RawCountry } from '../interfaces/country.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +11,8 @@ export class CountryMapperService {
 
   getMappedCountries(): Observable<CountryInterface[]> {
     return this.countryService.getCountries().pipe(
-      map((countries: any[]) => {
-        return countries.map((country) => ({
+      map((countries: RawCountry[]) => {
+        return countries.map(country => ({
           flag: country.flags.png,
           common: country.name.common,
           official: country.name.official,

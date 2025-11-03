@@ -4,7 +4,6 @@ import { CountryInterface } from '../../interfaces/country.interface';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
-
 describe('ListCountriesComponent', () => {
   let component: ListCountriesComponent;
   let fixture: ComponentFixture<ListCountriesComponent>;
@@ -47,6 +46,6 @@ describe('ListCountriesComponent', () => {
       By.css('app-country-of-list')
     );
     expect(children.length).toBe(3);
-    expect(component.countries.length).toBe(3)
+    expect(component.countries.length).toBe(3);
   });
 });

@@ -8,7 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearcherComponent {
   @Output() searcherOut = new EventEmitter<string>();
-  searchCountry(country: string){
+  searchCountry(country: string) {
     this.searcherOut.emit(country);
   }
 }

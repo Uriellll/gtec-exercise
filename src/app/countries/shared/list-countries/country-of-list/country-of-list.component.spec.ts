@@ -28,7 +28,7 @@ describe('CountryOfListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-   it('should render the country official name', () => {
+  it('should render the country official name', () => {
     const p = fixture.debugElement.query(By.css('p')).nativeElement;
     expect(p.textContent).toBe('United Mexican States');
   });
@@ -37,7 +37,9 @@ describe('CountryOfListComponent', () => {
     expect(img.src).toContain('https://flagcdn.com/mx.svg');
   });
   it('should have correct routerLink', () => {
-    const a = fixture.debugElement.query(By.css('a')).attributes['ng-reflect-router-link'];
+    const a = fixture.debugElement.query(By.css('a')).attributes[
+      'ng-reflect-router-link'
+    ];
     expect(a).toBe('/country,Mexico'); // Angular convierte el array a string separado por coma
   });
 });

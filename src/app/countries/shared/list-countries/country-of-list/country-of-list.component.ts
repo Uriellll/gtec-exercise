@@ -6,8 +6,8 @@ import { RouterLink } from '@angular/router';
   selector: 'app-country-of-list',
   imports: [RouterLink],
   templateUrl: './country-of-list.component.html',
-  styleUrl: './country-of-list.component.scss'
+  styleUrl: './country-of-list.component.scss',
 })
 export class CountryOfListComponent {
-  @Input() country!:CountryInterface;
+  @Input() country!: CountryInterface;
 }

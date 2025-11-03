@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearcherComponent } from './searcher.component';
 import { By } from '@angular/platform-browser';
-import { finalize } from 'rxjs';
 
 describe('SearcherComponent', () => {
   let component: SearcherComponent;
